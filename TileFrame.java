@@ -140,18 +140,19 @@ public class TileFrame extends JFrame {
                         ActionStack.clear();
 			
 			String n = JOptionPane.showInputDialog("Enter the number of cells:");
-			numberOfCells = Integer.parseInt(n);
-			if (numberOfCells <= 7) {
+                        int tmp = Integer.parseInt(n);
+			if (tmp <= 7) {
+                            numberOfCells = tmp;
+                        }
+                        else {
+                            JOptionPane.showMessageDialog(null,"Board cannot be resized to greater than 7 square tiles.", "Notice", JOptionPane.OK_CANCEL_OPTION);
+                        }
                             for (int i=0; i<numberOfCells; i++) {
                                     for (int j=0; j<numberOfCells; j++) {
                                             board.add(cells[i][j]);
                                     }
                             }
                             repaint();
-                        }
-                        else {
-                            JOptionPane.showMessageDialog(null,"Board cannot be resized to greater than 7 square tiles.", "Notice", JOptionPane.OK_CANCEL_OPTION);
-                        }
                 }
             }
 }
