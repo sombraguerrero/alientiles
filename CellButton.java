@@ -5,8 +5,11 @@ public final class CellButton extends JButton {
 	private int rowIndex;
 	private int columnIndex;
         private int colorPos = 0;
-        public final static Color[] validColors = {Color.LIGHT_GRAY, Color.RED, Color.GREEN, Color.BLUE, Color.MAGENTA};
-        private Color currentColor = Color.LIGHT_GRAY;
+        
+        //A priming color is needed if we randomize the solution color.
+        //public final static Color[] validColors = {Color.LIGHT_GRAY, Color.RED, Color.GREEN, Color.BLUE, Color.MAGENTA};
+        public final static Color[] validColors = {Color.RED, Color.GREEN, Color.BLUE, Color.MAGENTA};
+        private Color currentColor = validColors[colorPos];
 	
 	public CellButton() { setBackground(currentColor); }
 	public CellButton(int r,int c) {
@@ -15,10 +18,15 @@ public final class CellButton extends JButton {
 		setBackground(currentColor);
 	}
 	public void toggle(boolean reset) {
+                /***
 		if (colorPos == validColors.length - 1 && !reset) {
                     colorPos = 1;
                 }
                 else if (reset) {
+                    colorPos = 0;
+                }
+                * **/
+                if (colorPos == validColors.length - 1 || reset) {
                     colorPos = 0;
                 }
 		else {

@@ -34,8 +34,13 @@ public class TileFrame extends JFrame {
 			ctrl[i] = new JButton(btnInfo[i]);
 			ctrlPanel.add(ctrl[i]);
 		}
-                Random rng = new Random();
-                winner.setForeground(CellButton.validColors[rng.nextInt(CellButton.validColors.length - 1) + 1]);
+                
+                //Let the computer randomly choose which color is the goal.
+                //Random rng = new Random();
+                //winner.setForeground(CellButton.validColors[rng.nextInt(CellButton.validColors.length - 1) + 1]);
+                
+                //The original form of the problem.
+                winner.setForeground(Color.BLUE);
                 winner.setText("This color wins!");
                 ctrlPanel.add(winner);
 		
