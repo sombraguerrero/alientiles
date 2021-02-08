@@ -1,5 +1,6 @@
 # alientiles
 A simplistic rewrite of the game's original Java applet in desktop application form.
+Starting from a 7x7 array of all red cells, make all the tiles blue! Alien Tiles is a vivid and fiendishly difficult puzzle recently created and developed by Dr. Cliff Pickover (and programmed by Cam Mckechnie).
 
 <h3>Challenges</h3>
 <ol>
