@@ -15,7 +15,10 @@ public final class CellButton extends JButton {
 		setBackground(currentColor);
 	}
 	public void toggle(boolean reset) {
-		if (colorPos == validColors.length - 1 || reset == true) {
+		if (colorPos == validColors.length - 1 && !reset) {
+                    colorPos = 1;
+                }
+                else if (reset) {
                     colorPos = 0;
                 }
 		else {
