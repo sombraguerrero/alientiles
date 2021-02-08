@@ -71,16 +71,16 @@ public class TileFrame extends JFrame {
 			int rowAt = theCell.getRow();
 			int colAt = theCell.getColumn();
 			for (int i=0; i<=rowAt; i++) {
-				cells[i][colAt].toggle(false);
+				cells[i][colAt].toggle(CellButton.ActionMode.Forward);
 			}
 			for (int i=rowAt+1; i<numberOfCells; i++) {
-				cells[i][colAt].toggle(false);
+				cells[i][colAt].toggle(CellButton.ActionMode.Forward);
 			}
 			for (int i=0; i<colAt; i++) {
-				cells[rowAt][i].toggle(false);
+				cells[rowAt][i].toggle(CellButton.ActionMode.Forward);
 			}
 			for (int i=colAt+1; i<numberOfCells; i++) {
-				cells[rowAt][i].toggle(false);
+				cells[rowAt][i].toggle(CellButton.ActionMode.Forward);
 			}
 		}
 		
@@ -92,7 +92,7 @@ public class TileFrame extends JFrame {
 			if (JOptionPane.showConfirmDialog(null,"Start a new game?","Reset",JOptionPane.YES_NO_OPTION)==JOptionPane.YES_OPTION) {
 			for (int a=0; a<numberOfCells; a++) {
                             for (CellButton cell : cells[a]) {
-                                cell.toggle(true);
+                                cell.toggle(CellButton.ActionMode.Reset);
                             }
 			}
 		    }
@@ -117,16 +117,16 @@ public class TileFrame extends JFrame {
 			int prevColAt = lastCell.getColumn();
 			
 			for (int i=0; i<=prevRowAt; i++) {
-				cells[i][prevColAt].toggle(false);
+				cells[i][prevColAt].toggle(CellButton.ActionMode.Undo);
 			}
 			for (int i=prevRowAt+1; i<numberOfCells; i++) {
-				cells[i][prevColAt].toggle(false);
+				cells[i][prevColAt].toggle(CellButton.ActionMode.Undo);
 			}
 			for (int i=0; i<prevColAt; i++) {
-				cells[prevRowAt][i].toggle(false);
+				cells[prevRowAt][i].toggle(CellButton.ActionMode.Undo);
 			}
 			for (int i=prevColAt+1; i<numberOfCells; i++) {
-				cells[prevRowAt][i].toggle(false);
+				cells[prevRowAt][i].toggle(CellButton.ActionMode.Undo);
 			}
 		}
 	}

@@ -9,6 +9,7 @@ public final class CellButton extends JButton {
         //A priming color is needed if we randomize the solution color.
         //public final static Color[] validColors = {Color.LIGHT_GRAY, Color.RED, Color.GREEN, Color.BLUE, Color.MAGENTA};
         public final static Color[] validColors = {Color.RED, Color.GREEN, Color.BLUE, Color.MAGENTA};
+        public static enum ActionMode  { Forward, Undo, Reset}
         private Color currentColor = validColors[colorPos];
 	
 	public CellButton() { setBackground(currentColor); }
@@ -17,7 +18,7 @@ public final class CellButton extends JButton {
 		columnIndex = c;
 		setBackground(currentColor);
 	}
-	public void toggle(boolean reset) {
+	public void toggle(ActionMode a) {
                 /***
 		if (colorPos == validColors.length - 1 && !reset) {
                     colorPos = 1;
@@ -26,12 +27,18 @@ public final class CellButton extends JButton {
                     colorPos = 0;
                 }
                 * **/
-                if (colorPos == validColors.length - 1 || reset) {
+                if (colorPos == validColors.length - 1 || a == ActionMode.Reset) {
                     colorPos = 0;
                 }
-		else {
-                    colorPos++;
+                else if (a == ActionMode.Undo && colorPos > 0) {
+                    colorPos--;
+                }
+		else if (colorPos == 0 && a == ActionMode.Undo) {
+                    colorPos = validColors.length - 1;
 		}
+                else {
+                    colorPos++;
+                }
                 currentColor = validColors[colorPos];
 		setBackground(currentColor);
 	}
