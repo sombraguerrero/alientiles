@@ -95,6 +95,7 @@ public class TileFrame extends JFrame {
                                 cell.toggle(CellButton.ActionMode.Reset);
                             }
 			}
+                        ActionStack.clear();
 		    }
 		}
 	}
@@ -136,6 +137,7 @@ public class TileFrame extends JFrame {
                 @Override
 		public void actionPerformed(ActionEvent e) {
 			board.removeAll();
+                        ActionStack.clear();
 			
 			String n = JOptionPane.showInputDialog("Enter the number of cells:");
 			numberOfCells = Integer.parseInt(n);
